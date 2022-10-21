@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccukmwkj1wo8h"]
+
+[sub_resource type="GDScript" id="GDScript_m61gg"]
+script/source = "extends GridContainer
+
+const Cell: PackedScene = preload(\"res://src/objects/Cell.tscn\")
+
+@export var width: int = 8
+@export var height: int = 8
+
+var total_number_of_cells = width * height
+
+var all_bombs = Array()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	set_columns(width)
+
+	fill_board()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+
+func fill_board():
+	for i in range(total_number_of_cells):
+		var new_cell = Cell.instantiate()
+		
+		new_cell.has_bomb = randi_range(0, 3) == 0
+		new_cell.cell_grid_position = Vector2(int(i%height), int(i/height))
+		
+		all_bombs.append(new_cell)
+		
+		new_cell.connect(\"pressed\", _on_cell_opened)
+		self.add_child(new_cell)
+
+func _on_cell_opened():
+	print(1)
+"
+
+[node name="Grid" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 48.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+script = SubResource("GDScript_m61gg")

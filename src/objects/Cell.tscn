@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://brypyumntv4m7"]
+
+[ext_resource type="Texture2D" uid="uid://bqhekts1t7s87" path="res://assets/art/full.png" id="1_nvlv5"]
+[ext_resource type="Texture2D" uid="uid://cm3shutokjlo6" path="res://assets/art/pressed.png" id="2_6a6o3"]
+[ext_resource type="Texture2D" uid="uid://bmk7lm20kqs0x" path="res://assets/art/empty.png" id="3_betnb"]
+
+[sub_resource type="GDScript" id="GDScript_5cu17"]
+script/source = "extends TextureButton
+
+class_name Cell
+
+@export var is_open: bool = false
+@export var cell_grid_position: Vector2 = Vector2(-1, -1)
+@export var has_bomb: bool = false
+@export var bombs_around: int = 0
+
+
+func _ready():
+	pass
+
+
+func _process(_delta):
+	pass
+
+
+func _pressed():
+	is_open = true
+	if has_bomb:
+		explode()
+	else:
+		set_disabled(true)
+		if bombs_around > -1:
+			$BombsAroundLabel.set_text(str(bombs_around))
+
+func explode():
+	var bomb = load(\"res://assets/art/bomb.png\")
+	set_disabled(true)
+	set_disabled_texture(bomb)
+
+"
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 32.0
+offset_bottom = 32.0
+shortcut_in_tooltip = false
+button_mask = 3
+texture_normal = ExtResource("1_nvlv5")
+texture_pressed = ExtResource("2_6a6o3")
+texture_disabled = ExtResource("3_betnb")
+script = SubResource("GDScript_5cu17")
+
+[node name="BombsAroundLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1

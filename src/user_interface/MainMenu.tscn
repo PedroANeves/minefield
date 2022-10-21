@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bclrrwm3d0mvw"]
+
+[node name="Root" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpacerL" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 240.0
+offset_right = 319.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 323.0
+offset_top = 192.0
+offset_right = 397.0
+offset_bottom = 288.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+offset_right = 74.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
+text = "minefield"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+offset_top = 30.0
+offset_right = 74.0
+offset_bottom = 61.0
+text = "start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+offset_top = 65.0
+offset_right = 74.0
+offset_bottom = 96.0
+text = "quit"
+
+[node name="SpacerR" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 401.0
+offset_top = 240.0
+offset_right = 720.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 4

@@ -1,0 +1,64 @@
+Scene structure:
+
+Game(Node)
+    instance: Level(Node2D)
+        instance: Level(Node2D)
+    InterfaceLayer(CanvasLayer)
+        instance: PauseMenu(Control/Container)
+
+###############################################################################
+
+File structure:
+
+res:(png/ogg/tff/tres)
+
+├ assets
+│   ├ art
+│   │   ├ background
+│   │   ├ coin
+│   │   ├ enemy
+│   │   ├ platforms
+│   │   ├ player
+│   │   │   ├ bullet
+│   │   ├ tileset
+│   │   │   └ tileset.tres
+│   │   └ ui
+│   ├ audio
+│   │   ├ music
+│   │   └ sfx
+│   └ theme
+│       ├ fonts
+│       │   ├ kenney_mini_square.tres
+│       │   └ kenney_mini_square.ttf
+│       └ user_interface.tres
+├ icon.png
+├ README.md
+├ screenshots
+└ src
+    ├ Actors
+    │   ├ Actor.gd
+    │   ├ Enemy.gd
+    │   ├ Enemy.tscn
+    │   ├ Gun.gd
+    │   ├ Player.gd
+    │   └ Player.tscn
+    ├ Level
+    │   ├ Level.gd
+    │   ├ Level.tscn
+    │   ├ Music.gd
+    │   └ ParallaxBackground.tscn
+    ├ Main
+    │   ├ Game.gd
+    │   ├ Game.tscn
+    │   └ Splitscreen.tscn
+    ├ Objects
+    │   ├ Bullet.gd
+    │   ├ Bullet.tscn
+    │   ├ Coin.gd
+    │   └ Coin.tscn
+    ├ Platforms
+    │   └ Platform.tscn
+    └ UserInterface
+        ├ PauseMenu.gd
+        └ PauseMenu.tscn
+
