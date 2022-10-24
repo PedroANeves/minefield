@@ -1,5 +1,7 @@
 # minefield
 
+![ss1](media/screenshots/ss1.png)
+
 ## controls
 key | command
 ---|---
